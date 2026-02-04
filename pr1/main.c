@@ -1,60 +1,3 @@
-# Practical work 1 (Variant 13)
-Objective: To familiarize yourself with the process of installing and running the Ubuntu Linux operating system and set up a basic environment for programming in C/C++.
-
-*Note*: Dual boot/WSL/Virtual machine setup is not covered in this description, so first select and apply one of these three system setup methods to install the Linux distribution, and then proceed with the step-by-step instructions described below. The instructions were written for virtual machine case, but you can also follow along, altering some steps to your specific needs.
-
-## Installing Ubuntu Server
-
-1. Download **Ubuntu server** iso file from the official Ubuntu website (choose LTS version for long-term support): https://ubuntu.com/download/server.
-
-2. After downloading it, choose it as an option when setting up new virtual environment (in case of virual machine).
-
-3. When the system starts, wait patiantly, until all commands were run.
-
-4. Then, follow the steps mentioned in the official Ubuntu documentation:
-
-    - Choose your language
-    - Update the installer (if offered)
-    - Select your keyboard layout
-    - Do not configure networking (the installer attempts to configure wired network interfaces via DHCP, but you can continue without networking if this fails)
-    - Do not configure a proxy or custom mirror unless you have to in your network
-    - For storage, leave “use an entire disk” checked, and choose a disk to install to, then select “Done” on the configuration screen and confirm the install
-    - Enter a username, hostname and password
-    - On the SSH and snap screens, select “Done”
-    - You will now see log messages as the install is completed
-    - Select restart when this is complete, and log in using the username and password provided
-
-Source: https://ubuntu.com/server/docs/tutorial/basic-installation/#basic-installation.
-
-## Installing basic tools
-
-Once the initial installation is done, we need to install some drivers and basic developer tools. Run the following commands:
-
-- `sudo ubuntu-drivers autoinstall` - drivers
-- `sudo reboot` - restart the system
-- `sudo apt install build-essential git -y` - basic tools
-
-Now you are ready to write your first program on Linux in C programming language!
-
-## (not) Basic program in C
-
-Now let's create a program in C, that will: 
-1. Prompt user for a number.
-2. Initialize new array with size of this number and fill it with also with this number.
-3. Dynamically allocate memory for array, if needed with growth factor of 1.5 (similar to ArrayList implementation in Java).
-4. After that have a menu with two options: N - new array size, E - exit.
-
-Create new directory (optional):
-
-1. `mkdir test`
-2. `cd test`
-
-Create and open a new file:
-
-`nano main.c`
-
-Write the following code inside that file:
-```
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -201,16 +144,3 @@ int main(void)
 
     return 0;
 }
-```
-
-Save the file:
-1. `Ctrl + O → Enter`
-2. `Ctrl + X`
-
-Compile the file:
-- `gcc -Wall main.c -o main`
-
-Run the file:
-- `./main`
-
-## Have fun!
